@@ -1,4 +1,4 @@
-# Assignment: React 3 (6 Points Total)
+# Assignment: React 3 (2 Points Total)
 
 This assignment is meant to introduce you to more features of React. This project is the third of a four part React project in which you will build a course scheduling application. This application uses a limited quantity of modified data from the UW Madison course information database.
 
@@ -50,58 +50,47 @@ Your project must be able to accept any data with the same format as above and t
 
 # Recommender
 
-## Problem 1 (1.25 points)
+## Problem 1
 
-- Fetch data from server `https://mysqlcs639.cs.wisc.edu/students/5022025924/classes/completed`
-- Create a new component to represent previously taken courses. This component might look somewhat like the Course component, but it will be simpler and won’t have options to add the course to the cart.
-- Create a new component to hold the previously taken courses. Make this component accessible from the app.
+Load in a json file of previous courses located at `https://mysqlcs639.cs.wisc.edu:5000/previouscourses/`. The user should be able to view the contents at this url as courses that the user has previously taken.
   
-## Problem 2 (1.25 points)
+## Problem 2
 
-- Create a component for rating a specific course.
-- Allow the user to rate courses they have already taken.
+Create a rating system for previously taken courses. The user should be able to rate some or all of the previously taken courses loaded from the json file.
 
-## Problem 3 (1.25 points)
+## Problem 3
 
-- Generate a list of interest areas based on the course data (maybe look at subjects and keywords)
-- Create a component for the user to select interest areas as defined in step 1.
-- Make this component available to the user.
+Create a way for the user to select areas of interest that you define. These areas can be general or specific. Some examples might be `computer science`, `artificial intelligence`, or `science`.
 
-## Problem 4 (1.25 points)
+## Problem 4
 
-- Create the recommender algorithm that takes in the rated courses and interest areas. Search through subjects and keywords to find the courses most similar to the highly rated courses and the courses that match the most interest areas
-- Display the recommended courses to the user. (Maybe show a few recommended courses or sort all courses by their recommendation score)
-
-## General (1 point)
-
-- Projects will be graded on the general usability and design of the system. You should consider the way the users navigate around the application, and other concepts covered in design lecture.
+Recommend courses to the user based off of the rated previously taken courses and the user's specified interest areas
 
 ---
 
 # Planner
 
-## Problem 1 (2 points)
+## Problem 1
 
-- Create a new planner view
-- Create a sidebar component for this planner view that displays all of the courses, sections, and subsections in the cart with with a way for the user to select each one
-- Store the data of what is selected to make the selections related (if a course is selected, all of its sections and subsections will also be selected)
+Based on the courses that the user has added to the cart, allow the user to select any subset of courses, sections, and subsections to later generate all possible schedules for.
 
-## Problem 2 (1 point)
+The user should be able to select 3 slight variations of course information for planning:
+1. A course with **all sections and subsections**
+2. A course with **one specific section** of a course with **all subsections**
+3. A course with **one specific section** that contains **one sepcifc subsection**.
 
-- Create a function to generate all of the possible schedules based on the data from planner's sidebar
+For example, if course `CS 639` has section `Section 1` with subsections `Subsection 1` and `Subsection 2`, the user should be able to select either of the following with the format of: course -> sections -> subsections with one action (such as a button click)
+1. `CS 639` -> `All` -> `All`
+2. `CS 639` -> `Section 1` -> `All`
+3. `CS 639` -> `Section 1` -> `Subsection 1`
 
-## Problem 3 (2 points)
+## Problem 2
 
-- With the provided component, create a schedule component that displays a generated schedule
-- Create a way for the user to view all generated schedules
+Based on the selections from problem 1, generate all possible schedules for the courses.
 
-## Pseudocode for schedule generation
+## Problem 3
 
-![pseudocode](./docs/pseudocode.jpg)
-- Now, timeBlocks contains a list for each course in which one of the section-subsection pairs must be selected to schedule. Iterate through all of these possibilities and add to schedules if there are no conflicts
-
-## General (1 point)
-- Projects will be graded on the general usability and design of the system. You should consider the way the users navigate around the application, and other concepts covered in design lecture.
+Create a way for the user to go through and view all of the possible schedules generated.
 
 ---
 
